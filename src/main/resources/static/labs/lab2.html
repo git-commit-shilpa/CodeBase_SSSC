@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lab 2</title>
+</head>
+
+<body>
+
+    <h1>Lab 2</h1>
+
+    <h2>The Purpose</h2>
+    <p>The lab will show off the Reflected Cross Site Scripting (XSS) attack.</p>
+    
+    <h2>Pre-steps</h2>
+    <p> Login to the site using the login page.  <a href="../login">Click here</a> to open the login page or navigate to http://localhost:8888/login.  Use the appropriate credentials to login.</p>
+    <p> Next, click the "To Search Page" link to open the page.</p>
+    <p> In the URL, add any text to the "query" querystring value.  For example, /search?query=Test.  Then click enter to open that page.  Notice the value for query appears next to the "showing search results for:" text.</p>
+
+    <h2> Steps </h2>
+    <p> Attempt the following Reflected XSS attacks: </p>
+    <ul>
+        <li>&#60;&#115;&#99;&#114;&#105;&#112;&#116;&#62;&#97;&#108;&#101;&#114;&#116;&#40;&#34;&#88;&#83;&#83;&#34;&#41;&#59;&#60;&#47;&#115;&#99;&#114;&#105;&#112;&#116;&#62;</li>
+        <li>&#60;&#105;&#109;&#103;&#32;&#115;&#114;&#99;&#61;&#34;&#120;&#34;&#32;&#111;&#110;&#101;&#114;&#114;&#111;&#114;&#61;&#34;&#119;&#105;&#110;&#100;&#111;&#119;&#46;&#108;&#111;&#99;&#97;&#116;&#105;&#111;&#110;&#61;&#39;&#104;&#116;&#116;&#112;&#58;&#47;&#47;&#119;&#119;&#119;&#46;&#103;&#111;&#111;&#103;&#108;&#101;&#46;&#99;&#111;&#109;&#39;&#34;&#62;</li>
+        <li>&#60;&#100;&#105;&#118;&#32;&#115;&#116;&#121;&#108;&#101;&#61;&#34;&#98;&#97;&#99;&#107;&#103;&#114;&#111;&#117;&#110;&#100;&#58;&#114;&#101;&#100;&#59;&#34;&#62;&#84;&#69;&#83;&#84;&#60;&#47;&#100;&#105;&#118;&#62;</li>
+    </ul>
+    <p> Notice that the page will run whatever script you enter in.  Why?</p>
+
+
+    <h2> Why?</h2>
+    <p>In VSCode, open the src/main/java/com/securecode/Web/WebController.java file.</p>
+        
+    <p>Navigate down to line 145.  This is where the /search page is handled.  In the parameters of the method, there are the following: </p>
+    <ol>
+        <li>HttpServletResponse response</li>
+        <li>@CookieValue(value="Session") String sessionid</li>
+        <li>@RequestParam String query</li>
+    </ol>
+    <p>The value of the "query" request parameters is mapped to the "query" parameter. </p>
+    <p>Now, scroll down to the next few lines.  Notice we take the value of query and "inject" it into the returned html.</p>
+
+    
+    
+
+    <p><a href="lab.html">Back to labs home.</a></p>
+
+
+</body>
+
+</html>
+    
+    
+    
+    
+    

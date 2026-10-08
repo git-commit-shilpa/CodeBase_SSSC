@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lab 11</title>
+</head>
+
+<body>
+
+    <h1>Lab 11</h1>
+
+    <h2>The Purpose</h2>
+    <p>The lab will show how the edit message can be exploited</p>
+
+    <h2>Pre-steps</h2>
+    <p> Open the message page.</p>
+
+    <h2>Steps</h2>
+    <p>In the src/main/java/com/securecode/restService/MessageAPIController.java file, find the POST mapping for /api/message/{id}.  Put a breakpoint on line 55 where this.messageController.updateMessage is called.</p>
+    <p>Restart the application with debugging turned on.</p>
+    <p>Now, attempt to edit a message and step through to see what happens.</p>
+    <p>Notice MessageController.updateMessage calls MessageModel.UpdateMessage, which calls MessageDataAccess.updateMessage.</p>
+    
+    <br/>
+    <br/>
+    <p>In MessageDataAccess.java in the updateMessage method, place a breakpoint on the line after the String sql is defined and assigned.  Attempt to edit a message and see what the value of the String sql is.</p>
+    
+    <ul><li>"update message set authorid = 1, message = 'test123123' where messageid = 1"</li></ul>
+    
+    <ol>
+        <li>How can you see the full value of the String sql?</li>
+        <li>Can you think of a string to type in for the message that will cause issues here?</li>
+    </ol>
+
+
+
+    <p><a href="lab.html">Back to labs home.</a></p>
+
+
+</body>
+
+</html>
+    
+    
+    
+    
+    

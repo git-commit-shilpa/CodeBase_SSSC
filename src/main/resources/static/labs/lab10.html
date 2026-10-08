@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lab 10</title>
+</head>
+
+<body>
+
+    <h1>Lab 10</h1>
+
+    <h2>The Purpose</h2>
+    <p>The lab will show how the login page can be exploited</p>
+
+    <h2>Pre-steps</h2>
+    <p> Open the login page. <a href="../login">Click here</a> to open the login page or navigate to http://localhost:8888/login.</p>
+
+    <h2>Steps</h2>
+    <p>In the /Web/WebController.java file, find the login method that maps the POST /login URL to code.  Place a breakpoint on the method that calls this.loginController.Login(...).</p>
+    <p>Restart the application with debugging turned on.</p>
+    <p>Now, attempt to login and step through to see what happens.</p>
+    <p>Note that The LoginController.Login calls MemberModel.CheckLogin, which then calls MemberDataAccess.getMemberByCredentials.</p>
+    
+    <br/>
+    <br/>
+    <p>In MemberDataAccess.java in the getMemberByCredentials method, place a breakpoint on the line after the String sql is defined and assigned.  Attempt to login and see what the value of the String sql is.</p>
+    
+    <ul><li>"select memberid, username, fullname from member where username = 'rflorin' AND password = 'test'"</li></ul>
+    
+    <ol>
+        <li>How can you see the full value of the String sql?</li>
+        <li>Can you think of a string to type in for the username or password that will cause issues here?</li>
+    </ol>
+
+  
+
+    <p><a href="lab.html">Back to labs home.</a></p>
+
+
+</body>
+
+</html>
+    
+    
+    
+    
+    

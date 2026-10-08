@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lab 13</title>
+</head>
+
+<body>
+
+    <h1>Lab 13</h1>
+
+    <h2>The Purpose</h2>
+    <p>The lab will show how the SQL Injection can be used to change the data in the database.</p>
+
+    <h2>Pre-steps</h2>
+    <p> Open the login page or the edit page.</p>
+
+    <h2>Steps</h2>
+
+    <p> In SQL, you can end the current command using a semicolon.  Meaning, you can send multiple commands to the database.</p>
+    <p> To delete a table from a database, you can run the following command:</p>
+    <ul>
+        <li>DROP TABLE <i>tablename</i>;</li>
+    </ul>
+    <p> To insert a record into a table, you can run the following command:</p>
+    <ul>
+        <li>INSERT INTO member (memberid, username, password, fullname, role) VALUES (10, &#39student&#39, &#39test&#39, &#39Sara Tudent&#39, &#39admin&#39);</li>
+    </ul>
+
+
+    <ul>
+        <li>Can you use SQL Injection to DROP the member table?  Note: You can restart the server to re-create the database.</li>
+        <li>Can you use SQL Injection to INSERT a new user for yourself, then use it to login?</li>
+    </ul>
+    
+    <h2>Submission</h2>
+    <p>Create a login for yourself using SQL Injection.</p>
+    <p>Then login as the user.  Take a screenshot of the page that loads once you login.  It must show the "Welcome to the site" text, and ther user details below it.</p>
+    <p>Submit the screenshot for credit for completing the Lab.</p>
+
+    <p><a href="lab.html">Back to labs home.</a></p>
+
+
+</body>
+
+</html>
+    
+    
+    
+    
+    

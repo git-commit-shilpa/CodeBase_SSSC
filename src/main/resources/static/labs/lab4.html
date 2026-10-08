@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lab 4</title>
+</head>
+
+<body>
+
+    <h1>Lab 4</h1>
+
+    <h2>The Purpose</h2>
+    <p>Learn some differences in how these attacks work, and learn some "primitive" protections</p>
+    
+    <h2>Pre-steps</h2>
+    <p> Attempt the following attacks using a Reflected XSS and Stored XSS.</p>
+    <ul>
+        <li>&#60;&#115;&#99;&#114;&#105;&#112;&#116;&#62;&#97;&#108;&#101;&#114;&#116;&#40;&#34;&#88;&#83;&#83;&#34;&#41;&#59;&#60;&#47;&#115;&#99;&#114;&#105;&#112;&#116;&#62;&#10;</li>
+        <li>&#60;&#105;&#109;&#103;&#32;&#115;&#114;&#99;&#61;&#34;&#120;&#34;&#32;&#111;&#110;&#101;&#114;&#114;&#111;&#114;&#61;&#34;&#97;&#108;&#101;&#114;&#116;&#40;&#96;&#88;&#83;&#83;&#96;&#41;&#34;&#62;&#10;</li>
+        <li>&#60;&#105;&#109;&#103;&#32;&#115;&#114;&#99;&#61;&#34;&#120;&#34;&#32;&#111;&#110;&#101;&#114;&#114;&#111;&#114;&#61;&#34;&#97;&#108;&#101;&#114;&#116;&#40;&#39;&#88;&#83;&#83;&#39;&#41;&#34;&#62;&#10;</li>
+    </ul>
+    
+    <h2>Try this!</h2>
+    <h3> Part 1. </h3>
+    <p> Attempt a Reflected XSS and a Stored XSS using the following: </p>
+    <ul>
+        <li>&#60;&#115;&#99;&#114;&#105;&#112;&#116;&#62;&#97;&#108;&#101;&#114;&#116;&#40;&#34;&#88;&#83;&#83;&#34;&#41;&#59;&#60;&#47;&#115;&#99;&#114;&#105;&#112;&#116;&#62;&#10;</li>
+    </ul>
+    <p> Why does it act differently?  </p>
+
+    <h3> Part 2.</h3>
+    <p> Try running the following two as a Stored XSS attack: </p>
+    <ul>
+        <li>&#60;&#105;&#109;&#103;&#32;&#115;&#114;&#99;&#61;&#34;&#120;&#34;&#32;&#111;&#110;&#101;&#114;&#114;&#111;&#114;&#61;&#34;&#97;&#108;&#101;&#114;&#116;&#40;&#96;&#88;&#83;&#83;&#96;&#41;&#34;&#62;&#10;</li>
+        <li>&#60;&#105;&#109;&#103;&#32;&#115;&#114;&#99;&#61;&#34;&#120;&#34;&#32;&#111;&#110;&#101;&#114;&#114;&#111;&#114;&#61;&#34;&#97;&#108;&#101;&#114;&#116;&#40;&#39;&#88;&#83;&#83;&#39;&#41;&#34;&#62;&#10;</li>
+    </ul>
+    <p> Notice the difference in them.  One uses backticks (`) and one uses single quotes (').  </p>
+
+
+    <h2> Why? </h2>
+    <p> Take some time.  Investigate why they act differently.  We will discuss more as a class.  Here are some things to try:</p>
+    <ul>
+        <li>Open up the developer tools of the browser.  Are there differences in how they are rendered in Reflected vs Stored XSS?</li>
+        <li>Open up the code for how these pages work.  Are there differences in how Reflected vs Stored works?</li>
+        <li>There may be hints to certain issues in the Client-side console logs.  In the developer tools, open the Console tab.  Are there errors listed?</li>
+        <li>There may be hints to certain issues in the Service-side debug logs.  In VSCode, or the terminal, are there any errors listed?</li>
+    </ul>
+
+    
+    
+
+    <p><a href="lab.html">Back to labs home.</a></p>
+
+
+</body>
+
+</html>
+    
+    
+    
+    
+    

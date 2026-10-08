@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lab 3</title>
+</head>
+
+<body>
+
+    <h1>Lab 3</h1>
+
+    <h2>The Purpose</h2>
+    <p>The lab will show off the Stored Cross Site Scripting (XSS) attack.</p>
+    
+    <h2>Pre-steps</h2>
+    <p> Open the message page. <a href="../">Click here</a> to open the it or navigate to http://localhost:8888/.  </p>
+    <p> Add or edit one of the existing messages.</p>
+    <p> Open the message page in another browser window or even another browser.  The new message is stored in the h2 database.</p>
+
+    <h2> Steps </h2>
+    <p> Attempt the following Stored XSS attacks: </p>
+    <ul>
+        <li>&#60;&#105;&#109;&#103;&#32;&#115;&#114;&#99;&#61;&#34;&#120;&#34;&#32;&#111;&#110;&#101;&#114;&#114;&#111;&#114;&#61;&#34;&#97;&#108;&#101;&#114;&#116;&#40;&#96;&#88;&#83;&#83;&#96;&#41;&#34;&#62;&#10;</li>
+        <li>&#60;&#98;&#117;&#116;&#116;&#111;&#110;&#32;&#111;&#110;&#109;&#111;&#117;&#115;&#101;&#111;&#118;&#101;&#114;&#61;&#97;&#108;&#101;&#114;&#116;&#40;&#34;&#88;&#83;&#83;&#34;&#41;&#62;&#99;&#108;&#105;&#99;&#107;&#32;&#109;&#101;&#33;&#60;&#47;&#98;&#117;&#116;&#116;&#111;&#110;&#62;&#10;</li>
+    </ul>
+
+    <p>Now, try the following.</p>
+    <ul>
+        <li>&#x3C;&#x69;&#x6D;&#x67;&#x20;&#x73;&#x72;&#x63;&#x3D;&#x22;&#x78;&#x22;&#x20;&#x6F;&#x6E;&#x65;&#x72;&#x72;&#x6F;&#x72;&#x3D;&#x22;&#x77;&#x69;&#x6E;&#x64;&#x6F;&#x77;&#x2E;&#x6C;&#x6F;&#x63;&#x61;&#x74;&#x69;&#x6F;&#x6E;&#x3D;&#x60;&#x68;&#x74;&#x74;&#x70;&#x3A;&#x2F;&#x2F;&#x77;&#x77;&#x77;&#x2E;&#x67;&#x6F;&#x6F;&#x67;&#x6C;&#x65;&#x2E;&#x63;&#x6F;&#x6D;&#x60;&#x22;&#x3E;</li>
+    </ul>
+    <p>The page is redirected to another website.   Reopen the message page.  What happens?</p>
+    <p>To reset the data for the site, stop the server, then restart.  The default data will be reloaded.</p>
+
+
+    
+    
+
+    <p><a href="lab.html">Back to labs home.</a></p>
+
+
+</body>
+
+</html>
+    
+    
+    
+    
+    
