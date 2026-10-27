@@ -1,64 +1,80 @@
+
 package com.securecode.DomainObject;
 
 import java.util.ArrayList;
+
 import com.securecode.DataObject.MemberDataObject;
 import com.securecode.restService.Request.RegisterMemberRequest;
 
 public class MemberDomainObject {
 
-	private int memberid;
-	private String username;
-	private String fullname;
-	private String password;
+    private int memberid;
+
+    // Changed String fields to Domain Primitives
+    private UsernameDomainPrimitive username;
+    private String fullname;
+    private PasswordDomainPrimitive password;
 
     public int getMemberId() {
         return memberid;
     }
+
     public String getUsername() {
-        return username;
+        return username.getValue();
     }
+
     public String getFullname() {
         return fullname;
     }
+
     public String getPassword() {
-        return password;
+        return password == null ? null : password.getValue();
     }
 
-
-	public MemberDomainObject(MemberDataObject data) {
-		
-        try{
-            this.memberid = data.memberid;
-            this.username = data.username;
-            this.fullname = data.fullname;
-            this.password = data.password;
-
+    public MemberDomainObject(MemberDataObject data) {
+        if (data == null) {
+            throw new IllegalArgumentException(
+                "Member data cannot be null"
+            );
         }
-        catch (Exception ex) {
 
+        this.memberid = data.memberid;
+        this.username =
+            new UsernameDomainPrimitive(data.username);
+        this.fullname = data.fullname;
+
+        // Some database queries do not retrieve passwords.
+        this.password = data.password == null
+            ? null
+            : new PasswordDomainPrimitive(data.password);
+    }
+
+    public static ArrayList<MemberDomainObject> MapList(
+            ArrayList<MemberDataObject> dataList) {
+
+        ArrayList<MemberDomainObject> domainObjectList =
+            new ArrayList<>();
+
+        for (MemberDataObject data : dataList) {
+            domainObjectList.add(
+                new MemberDomainObject(data)
+            );
         }
-	}
-	
-	public static ArrayList<MemberDomainObject> MapList(ArrayList<MemberDataObject> dataList) {
-		ArrayList<MemberDomainObject> domainObjectList = new ArrayList<MemberDomainObject>();
-		
-		for (int i=0; i<dataList.size(); i++) {
-			MemberDomainObject domain = new MemberDomainObject(dataList.get(i));
-			domainObjectList.add(domain);
-		}
 
-		return domainObjectList;
-	}
+        return domainObjectList;
+    }
 
-	public MemberDomainObject(RegisterMemberRequest request) {
-        try{
-
-            this.username = request.getUsername();
-            this.password = request.getPassword();
+    public MemberDomainObject(RegisterMemberRequest request) {
+        if (request == null) {
+            throw new IllegalArgumentException(
+                "Registration request cannot be null"
+            );
         }
-        catch (Exception ex) {
 
-        }
-	}
+        this.username =
+            new UsernameDomainPrimitive(request.getUsername());
 
+        this.password =
+            new PasswordDomainPrimitive(request.getPassword());
+    }
 }
