@@ -1,13 +1,14 @@
 package com.securecode.Model;
 import java.util.ArrayList;
 import java.util.Set;
-import java.util.regex.Pattern;
 
 import org.springframework.stereotype.Service;
 
 import com.securecode.DataAccess.MemberDataAccess;
 import com.securecode.DataObject.MemberDataObject;
 import com.securecode.DomainObject.MemberDomainObject;
+import com.securecode.DomainObject.PasswordDomainPrimitive;
+import com.securecode.DomainObject.UsernameDomainPrimitive;
 import com.securecode.restService.Alert;
 
 
@@ -53,15 +54,23 @@ public class MemberModel {
         MemberDomainObject memberDomain = new MemberDomainObject(memberData);
 		return memberDomain;
 	}
+	
+	private boolean validate(
+			Alert alert,
+			String username,
+			String password) {
 
+		try {
+			new UsernameDomainPrimitive(username);
+			new PasswordDomainPrimitive(password);
+			return true;
 
-
-	private boolean validate(Alert alert, String username, String password) {
-
-		boolean valid = true;
-		return valid;
+		} catch (IllegalArgumentException ex) {
+			alert.addAlert(
+				Alert.Type.Error,
+				ex.getMessage()
+			);
+			return false;
+		}
 	}
-
-
-
 }
